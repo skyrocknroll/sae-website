@@ -17,7 +17,7 @@ const products = [
     {
         id: 2,
         name: "Cold Box Core Shooter",
-        image: "images/cold-box-core-shooter.png",
+        image: "images/cold-box-core-shooter-new.png",
         description: "High productivity core shooting machine designed for efficient core production in foundry operations.",
         category: "other",
         features: [
@@ -329,7 +329,7 @@ function createProductCard(product) {
     
     card.innerHTML = `
         <div class="product-image">
-            <img src="${product.image}" alt="${product.name}" loading="lazy">
+            <img src="${product.image}" alt="${product.name}" style="opacity: 0; transition: opacity 0.3s ease;">
         </div>
         <div class="product-info">
             <h3>${product.name}</h3>
@@ -337,6 +337,32 @@ function createProductCard(product) {
             <span class="product-category">${getCategoryName(product.category)}</span>
         </div>
     `;
+    
+    // Handle image loading properly for dynamically created images
+    const img = card.querySelector('img');
+    const imageContainer = card.querySelector('.product-image');
+    
+    img.onload = function() {
+        this.style.opacity = '1';
+        imageContainer.classList.add('loaded');
+        console.log('✅ Product image loaded:', product.name);
+    };
+    
+    img.onerror = function() {
+        console.error('❌ Failed to load product image:', product.image);
+        this.style.opacity = '1';
+        this.alt = `${product.name} - Image not available`;
+        imageContainer.classList.add('loaded');
+    };
+    
+    // Fallback timeout to ensure spinner disappears
+    setTimeout(() => {
+        if (img.style.opacity !== '1') {
+            img.style.opacity = '1';
+            imageContainer.classList.add('loaded');
+            console.log('⏰ Timeout fallback for:', product.name);
+        }
+    }, 5000);
     
     card.addEventListener('click', () => openModal(product));
     
@@ -554,23 +580,118 @@ function searchProducts(query) {
     renderProducts(filteredProducts);
 }
 
-// Lazy loading for images
+// Fixed Lazy loading with robust fallback mechanism
 function initializeLazyLoading() {
-    if ('IntersectionObserver' in window) {
+    console.log('🔧 FIXING: Initializing improved lazy loading...');
+    
+    let lazyLoadingFailed = false;
+    let loadedImagesCount = 0;
+    let totalLazyImages = 0;
+    
+    // Fallback function to disable lazy loading entirely
+    function disableLazyLoading() {
+        console.log('🚨 FALLBACK: Disabling lazy loading, loading all images immediately');
+        lazyLoadingFailed = true;
+        
+        document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+            img.removeAttribute('loading');
+            img.style.opacity = '1';
+            img.classList.add('fallback-loaded');
+            console.log('🔧 FALLBACK: Force loading image:', img.src);
+        });
+    }
+    
+    // Set a timeout to trigger fallback if lazy loading fails
+    const fallbackTimeout = setTimeout(() => {
+        if (loadedImagesCount === 0 && totalLazyImages > 0) {
+            console.log('⏰ TIMEOUT: Lazy loading appears to have failed, triggering fallback');
+            disableLazyLoading();
+        }
+    }, 3000); // 3 second timeout
+    
+    if ('IntersectionObserver' in window && !lazyLoadingFailed) {
+        console.log('✅ IntersectionObserver supported, attempting lazy loading');
+        
         const imageObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
+                if (entry.isIntersecting && !lazyLoadingFailed) {
                     const img = entry.target;
-                    img.src = img.dataset.src;
-                    img.classList.remove('lazy');
+                    
+                    // Simple and reliable loading approach
+                    if (img.getAttribute('loading') === 'lazy') {
+                        console.log('🔧 Loading image:', img.src);
+                        
+                        // Remove loading attribute to trigger native loading
+                        img.removeAttribute('loading');
+                        
+                        // Set up success handler
+                        const handleSuccess = () => {
+                            loadedImagesCount++;
+                            img.style.opacity = '1';
+                            img.classList.add('lazy-loaded');
+                            console.log('✅ Image loaded successfully:', img.src);
+                            
+                            // Clear timeout if we're successfully loading images
+                            if (loadedImagesCount === 1) {
+                                clearTimeout(fallbackTimeout);
+                            }
+                        };
+                        
+                        // Set up error handler
+                        const handleError = () => {
+                            console.error('❌ Image failed to load:', img.src);
+                            img.style.opacity = '0.5';
+                            img.classList.add('lazy-error');
+                            
+                            // If multiple images fail, trigger fallback
+                            if (document.querySelectorAll('.lazy-error').length > 3) {
+                                disableLazyLoading();
+                            }
+                        };
+                        
+                        // Check if image is already loaded
+                        if (img.complete && img.naturalWidth > 0) {
+                            handleSuccess();
+                        } else {
+                            img.onload = handleSuccess;
+                            img.onerror = handleError;
+                            
+                            // Force a reload to trigger events
+                            const currentSrc = img.src;
+                            img.src = '';
+                            img.src = currentSrc;
+                        }
+                    }
+                    
                     imageObserver.unobserve(img);
                 }
             });
+        }, {
+            rootMargin: '100px 0px', // Increased margin for better UX
+            threshold: 0.1
         });
         
-        document.querySelectorAll('img[data-src]').forEach(img => {
+        // Observe all lazy loading images
+        const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+        totalLazyImages = lazyImages.length;
+        console.log('🔧 Found', totalLazyImages, 'lazy loading images');
+        
+        if (totalLazyImages === 0) {
+            clearTimeout(fallbackTimeout);
+            console.log('ℹ️ No lazy loading images found');
+            return;
+        }
+        
+        lazyImages.forEach(img => {
+            // Set initial styles for smooth loading
+            img.style.transition = 'opacity 0.3s ease';
+            img.style.opacity = '0.1';
             imageObserver.observe(img);
         });
+        
+    } else {
+        console.log('🚨 IntersectionObserver not supported or lazy loading disabled, using immediate fallback');
+        disableLazyLoading();
     }
 }
 
@@ -638,3 +759,176 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+// FAQ Functionality
+function initializeFAQ() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            
+            // Close all other FAQ items
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                }
+            });
+            
+            // Toggle current item
+            if (isActive) {
+                item.classList.remove('active');
+            } else {
+                item.classList.add('active');
+            }
+        });
+    });
+}
+
+// Initialize FAQ when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    initializeFAQ();
+    initializeLazyLoading();
+    initializeAccessibilityFeatures();
+    initializePerformanceOptimizations();
+});
+
+// Accessibility Features
+function initializeAccessibilityFeatures() {
+    // Add ARIA labels to interactive elements
+    document.querySelectorAll('.hamburger').forEach(hamburger => {
+        hamburger.setAttribute('aria-label', 'Toggle navigation menu');
+        hamburger.setAttribute('aria-expanded', 'false');
+    });
+    
+    // Update hamburger ARIA state
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+            const isExpanded = navMenu.classList.contains('active');
+            hamburger.setAttribute('aria-expanded', isExpanded.toString());
+        });
+    }
+    
+    // Add keyboard navigation for FAQ items
+    document.querySelectorAll('.faq-question').forEach(question => {
+        question.setAttribute('tabindex', '0');
+        question.setAttribute('role', 'button');
+        question.setAttribute('aria-expanded', 'false');
+        
+        question.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                question.click();
+            }
+        });
+    });
+    
+    // Update FAQ ARIA states
+    document.querySelectorAll('.faq-item').forEach(item => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+        
+        if (question && answer) {
+            const id = 'faq-' + Math.random().toString(36).substr(2, 9);
+            answer.id = id;
+            question.setAttribute('aria-controls', id);
+            
+            // Update ARIA expanded state
+            const observer = new MutationObserver(() => {
+                const isActive = item.classList.contains('active');
+                question.setAttribute('aria-expanded', isActive.toString());
+            });
+            
+            observer.observe(item, { attributes: true, attributeFilter: ['class'] });
+        }
+    });
+}
+
+// Performance Optimizations
+function initializePerformanceOptimizations() {
+    // Preload critical resources
+    const criticalImages = [
+        'images/sree-abirami-equipments.png',
+        'images/shot-blasting-machine.png',
+        'images/iIntensive-mixer.png'
+    ];
+    
+    criticalImages.forEach(src => {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'image';
+        link.href = src;
+        document.head.appendChild(link);
+    });
+    
+    // Optimize scroll performance
+    let ticking = false;
+    
+    function updateScrollPosition() {
+        // Add scroll-based optimizations here
+        ticking = false;
+    }
+    
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(updateScrollPosition);
+            ticking = true;
+        }
+    }
+    
+    window.addEventListener('scroll', requestTick, { passive: true });
+    
+    // Optimize resize performance
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            // Handle resize optimizations
+            if (window.innerWidth > 768) {
+                if (hamburger) hamburger.classList.remove('active');
+                if (navMenu) navMenu.classList.remove('active');
+            }
+        }, 250);
+    }, { passive: true });
+}
+
+// Enhanced Error Handling
+window.addEventListener('error', (e) => {
+    console.error('JavaScript Error:', e.error);
+    
+    // Track errors in analytics if available
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'exception', {
+            description: e.error.toString(),
+            fatal: false
+        });
+    }
+});
+
+// Service Worker Registration for Caching (Progressive Web App features)
+if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+            .then(registration => {
+                console.log('✅ SW registered successfully: ', registration);
+            })
+            .catch(registrationError => {
+                console.warn('⚠️ SW registration failed (this is normal for file:// protocol): ', registrationError);
+            });
+    });
+} else if (location.protocol === 'file:') {
+    console.log('ℹ️ Service Worker disabled for file:// protocol (this is normal for local testing)');
+}
+
+// Critical CSS Loading Optimization
+function loadNonCriticalCSS() {
+    const nonCriticalCSS = document.querySelectorAll('link[rel="stylesheet"][media="print"]');
+    nonCriticalCSS.forEach(link => {
+        link.media = 'all';
+    });
+}
+
+// Load non-critical CSS after page load
+window.addEventListener('load', loadNonCriticalCSS);
+// Theme management functions removed - always use light mode

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Sitemap: https://www.sreeabirami.in/sitemap.xml
