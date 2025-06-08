@@ -1,0 +1,106 @@
+SREE ABIRAMI EQUIPMENTS - PRODUCT SERVICE PAGE IMAGE INVENTORY
+===========================================================
+
+LOGO IMAGES:
+1. Original URL: http://www.sreeabirami.com/images/sree-abirami-equipments.png
+   Saved as: sree-abirami-equipments.png (6.5 KB)
+   Description: Company logo (large) - Main header logo
+
+2. Original URL: http://www.sreeabirami.com/images/sree-abirami-equipment.png
+   Saved as: sree-abirami-equipment.png (3.8 KB)
+   Description: Company logo (small) - Footer logo
+
+PRODUCT IMAGES (Interactive Slideshow Gallery):
+3. Original URL: http://www.sreeabirami.com/images/pedestal-grinder.png
+   Saved as: pedestal-grinder.png (140 KB)
+   Description: Pedestal Grinder - Heavy fabrication MS grinder with adjustable job table
+
+4. Original URL: http://www.sreeabirami.com/images/cold-box-core-shooter.png
+   Saved as: cold-box-core-shooter.png (182 KB)
+   Description: Cold Box Core Shooter - High productivity core shooting machine
+
+5. Original URL: http://www.sreeabirami.com/images/mould-box.bmp
+   Saved as: mould-box.bmp (367 KB)
+   Description: Mould Box - Cast iron and ductile iron moulding boxes
+
+6. Original URL: http://www.sreeabirami.com/images/sand-dryer.png
+   Saved as: sand-dryer.png (170 KB)
+   Description: Sand Dryer - Single shell design rotary sand dryer
+
+7. Original URL: http://www.sreeabirami.com/images/sand-reclamation-plant.png
+   Saved as: sand-reclamation-plant.png (415 KB)
+   Description: Sand Reclamation Plant - Mechanical type reclamation for CO2 sand
+
+8. Original URL: http://www.sreeabirami.com/images/shot-blasting-machine.png
+   Saved as: shot-blasting-machine.png (184 KB)
+   Description: Shot Blasting Machine - Hanger type for effective casting cleaning
+
+9. Original URL: http://www.sreeabirami.com/images/vibratory-shakeout.png
+   Saved as: vibratory-shakeout.png (107 KB)
+   Description: Vibratory ShakeOut - Unbalanced vibromotor knockout system
+
+10. Original URL: http://www.sreeabirami.com/images/moulding-machine.png
+    Saved as: moulding-machine.png (116 KB)
+    Description: Moulding Machine - Jolt squeeze technology for uniform moulds
+
+11. Original URL: http://www.sreeabirami.com/images/ladles.png
+    Saved as: ladles.png (121 KB)
+    Description: Ladles - Lip pouring, bottom pouring, and SG treatment ladles
+
+12. Original URL: http://www.sreeabirami.com/images/polygonal-siever.png
+    Saved as: polygonal-siever.png (113 KB)
+    Description: Polygonal Siever - Rotary type sand sieving and lump breaking
+
+13. Original URL: http://www.sreeabirami.com/images/simple-shot-blasting-machine.png
+    Saved as: simple-shot-blasting-machine.png (150 KB)
+    Description: Simple Shot Blasting Machine - Y type/monorail compact design
+
+14. Original URL: http://www.sreeabirami.com/images/dust-collector.png
+    Saved as: dust-collector.png (145 KB)
+    Description: Dust Collector - Impulse jet cassette type filter system
+
+15. Original URL: http://www.sreeabirami.com/images/iIntensive-mixer.png
+    Saved as: iIntensive-mixer.png (141 KB)
+    Description: Intensive Mixer - High speed blender with low speed rotor
+
+16. Original URL: http://www.sreeabirami.com/images/tumblast-machine.png
+    Saved as: tumblast-machine.png (160 KB)
+    Description: Tumblast Machine - Rubber conveyor type for component cleaning
+
+17. Original URL: http://www.sreeabirami.com/images/pneumatic-conveyor.png
+    Saved as: pneumatic-conveyor.png (77 KB)
+    Description: Pneumatic Conveyor - Dense phase sand and additives transport
+
+18. Original URL: http://www.sreeabirami.com/images/ladle-pre-heater.png
+    Saved as: ladle-pre-heater.png (102 KB)
+    Description: Ladle Pre Heater - Vertical and horizontal type preheating system
+
+19. Original URL: http://www.sreeabirami.com/images/punch-out-machine.png
+    Saved as: punch-out-machine.png (264 KB)
+    Description: Punch Out Machine - Hydro mechanical drive for high productivity
+
+20. Original URL: http://www.sreeabirami.com/images/knockout-cum-feeder.png
+    Saved as: knockout-cum-feeder.png (130 KB)
+    Description: Knockout Cum Feeder - Double eccentric shaft vibratory system
+
+21. Original URL: http://www.sreeabirami.com/images/sand-cooler.png
+    Saved as: sand-cooler.png (167 KB)
+    Description: Sand Cooler - Fluidized bed sand cooling with water and air
+
+22. Original URL: http://www.sreeabirami.com/images/sand-mix-muller.png
+    Saved as: sand-mix-muller.png (154 KB)
+    Description: Sand Mix Muller - Heavy duty sand preparation with adjustable pressure
+
+DOWNLOAD STATUS: COMPLETED SUCCESSFULLY
+==============================================
+Total Images Downloaded: 22 (2 logos + 20 product images)
+Total Size: ~3.4 MB
+Date: June 7, 2025
+Source: http://www.sreeabirami.com/product-service.html
+
+NOTES:
+- All images are from the interactive slideshow gallery on the product-service page
+- Images show industrial foundry and metalworking equipment
+- File formats: PNG (21 files) and BMP (1 file)
+- All images successfully saved to ./images/ directory
+- Ready for use in modernized website development

@@ -1,0 +1,139 @@
+SREE ABIRAMI EQUIPMENTS WEBSITE CATALOG
+=======================================
+
+Base URL: http://www.sreeabirami.com/
+
+DISCOVERED PAGES:
+================
+
+1. HOME PAGE (index.html)
+   URL: http://www.sreeabirami.com/
+   Title: Sree Abirami Equipments | Home
+   Content: 
+   - Company introduction and welcome message
+   - Main heading: "Welcome to SAE"
+   - Company description: Foundry Turn Key Projects and Foundry Related Equipments
+   - Products mentioned: Shot Blasting Machines, Fluidized Bed Sand Coolers, Intensive Mixers, Sand Mixers and Mullers, Vibratory Shakeouts and Sievers, Mould Handling Systems, Molten Metal Handling Systems
+   - Contact info: Ph: +91 99430 16222, +91 99430 44755
+   - Industrial equipment image present
+
+2. ABOUT US PAGE (about.html)
+   URL: http://www.sreeabirami.com/about.html
+   Title: Sree Abirami Equipments | About Us
+   Content:
+   - Company history: Set up in 80s, based at Karamadai, Coimbatore, South India
+   - Two main sections: "Our Patrons" and "Quality"
+   - Focus on customer satisfaction and long-lasting relationships
+   - Quality control process description
+   - Emphasis on stringent testing at various levels
+
+3. INFRASTRUCTURE PAGE (infrastructure.html)
+   URL: http://www.sreeabirami.com/infrastructure.html
+   Title: Sree Abirami Equipments | Infrastructure
+   Content:
+   - Main heading: "Facilities"
+   - Company capabilities: CAD systems (SolidWorks2011, Solid Work Simulation2011, AutoCAD)
+   - Team: 40+ persons including managers, skilled engineers, technicians, workmen
+   - Facility: 10,000 sq.ft buildup area + 3 acres open land
+   - In-house machinery list:
+     * Dynamic Balance Machine
+     * MIG Welding Machine
+     * Welding Machines
+     * Electrical Grinders
+     * Gas Cutting Torches
+     * Chain Pulley Blocks
+     * Measuring Instruments
+     * Lathe
+     * Shaping Machine
+     * Milling Machine
+     * Tool Kits
+     * Work Bench
+     * PLC & Electrical upgrades
+
+4. PRODUCT & SERVICE PAGE (product-service.html)
+   URL: http://www.sreeabirami.com/product-service.html
+   Title: Sree Abirami Equipments | Product and Service
+   Content:
+   - Comprehensive product list with 20 items:
+     1. Pedestal Grinder
+     2. Cold Box Core Shooter
+     3. Mould Box
+     4. Sand Dryer
+     5. Sand Reclamation plant
+     6. Shot Blasting Machine
+     7. Vibratory ShakeOut
+     8. Moulding Machine
+     9. Ladles
+     10. Polygonal Siever
+     11. Simple Shot Blasting Machine
+     12. Dust Collector
+     13. Intensive Mixer
+     14. Tumblast Machine
+     15. Pneumatic Conveyor
+     16. Ladle Pre Heater
+     17. Punch Out Machine
+     18. Knockout Cum Feeder
+     19. Sand Cooler
+     20. Sand Mix Muller
+   - Interactive slideshow functionality
+   - Detailed product specifications for Pedestal Grinder:
+     * MS heavy fabrication, adjustable job table heights
+     * Wheel sizes: Dia 300mm to 500mm
+     * Drive ranges: 5HP, 7.5HP, 10HP, 12.5HP
+   - Customer satisfaction section emphasizing after-sales service
+
+5. CONTACT US PAGE (contact.html)
+   URL: http://www.sreeabirami.com/contact.html
+   Title: Sree Abirami Equipments | Contact Us
+   Content:
+   - Complete company contact information:
+     * Company Name: Sree Abirami Equipments
+     * Address: 638/1, Bettathapuram Pudur, Karamadai Post, Coimbatore - 641 104, Tamilnadu, India
+     * Phone: +91 99430 16222, +91 99430 44755
+     * Email: abiramiequipments@gmail.com
+   - Contact form with fields:
+     * Name (required)
+     * Email Address (required)
+     * Website
+     * Message
+     * CAPTCHA verification
+
+NAVIGATION STRUCTURE:
+====================
+All pages share consistent navigation:
+- Home (index.html)
+- About Us (about.html)
+- Infrastructure (infrastructure.html)
+- Product & Service (product-service.html)
+- Contact Us (contact.html)
+
+ADDITIONAL LINKS DISCOVERED:
+===========================
+- External link to designer: Vyoog Information Pvt. Ltd. (http://www.vyoog.com/)
+- Company logo links back to home page
+- Footer contains duplicate navigation links
+
+IMAGES IDENTIFIED:
+==================
+1. Company logo: "Sree Abirami Equipments" (appears on all pages)
+2. Industrial equipment image on home page
+3. Product slideshow images on product-service page (interactive gallery)
+4. CAPTCHA image on contact form
+
+TECHNICAL NOTES:
+===============
+- Website uses traditional HTML structure
+- Copyright: © 2022 Sree Abirami Equipments
+- Designed by: Vyoog Information Pvt. Ltd.
+- All pages maintain consistent header, navigation, and footer structure
+- Product page includes JavaScript functionality for slideshow navigation
+- Contact form includes CAPTCHA verification system
+
+MODERNIZATION CONSIDERATIONS:
+============================
+- Website appears to be from 2022 with traditional HTML/CSS structure
+- Product gallery could benefit from modern image optimization
+- Mobile responsiveness may need improvement
+- Contact form functionality should be verified
+- SEO optimization opportunities exist
+- Modern web standards implementation recommended
