@@ -48,4 +48,4 @@ This website showcases the company's comprehensive range of foundry equipment an
 
 ## Copyright
 
-© 2025 Sree Abirami Equipments. All rights reserved. | Designed & Maintained by Zipyoda
+© 2025 Sree Abirami Equipments. All rights reserved. | Designed & Maintained by Zipyoda Technologies Pvt Ltd

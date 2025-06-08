@@ -725,14 +725,30 @@ body {
 }
 
 .contact-info a {
-    color: #e5e7eb !important;
+    color: #ffffff !important;
     text-decoration: none !important;
     transition: color 0.3s ease !important;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
 }
 
 .contact-info a:hover {
     color: var(--secondary-color) !important;
     text-decoration: underline !important;
+}
+
+/* Enhanced phone and email readability - font size and color only */
+.contact-info a[href^="tel:"] {
+    color: #ffffff !important;
+    font-size: 1.2rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px !important;
+}
+
+.contact-info a[href^="mailto:"] {
+    color: #ffffff !important;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
 }
 
 .footer-bottom {
