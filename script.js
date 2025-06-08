@@ -17,7 +17,7 @@ const products = [
     {
         id: 2,
         name: "Cold Box Core Shooter",
-        image: "images/cold-box-core-shooter.png",
+        image: "images/cold-box-core-shooter-new.png",
         description: "High productivity core shooting machine designed for efficient core production in foundry operations.",
         category: "other",
         features: [

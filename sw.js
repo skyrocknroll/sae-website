@@ -53,32 +53,18 @@ self.addEventListener('fetch', (event) => {
     return;
   }
   
-  // Add diagnostic logging for image requests
-  if (event.request.url.includes('/images/') || event.request.destination === 'image') {
-    console.log('🔍 SW DIAGNOSTIC: Image request:', event.request.url);
-  }
   
   event.respondWith(
     caches.match(event.request)
       .then((response) => {
         // Return cached version or fetch from network
         if (response) {
-          if (event.request.url.includes('/images/')) {
-            console.log('✅ SW DIAGNOSTIC: Serving image from cache:', event.request.url);
-          }
           return response;
-        }
-        
-        if (event.request.url.includes('/images/')) {
-          console.log('🔍 SW DIAGNOSTIC: Fetching image from network:', event.request.url);
         }
         
         return fetch(event.request).then((response) => {
           // Check if we received a valid response
           if (!response || response.status !== 200 || response.type !== 'basic') {
-            if (event.request.url.includes('/images/')) {
-              console.error('❌ SW DIAGNOSTIC: Invalid response for image:', event.request.url, response?.status);
-            }
             return response;
           }
 
@@ -89,20 +75,11 @@ self.addEventListener('fetch', (event) => {
             .then((cache) => {
               cache.put(event.request, responseToCache).catch((error) => {
                 // Silently handle cache errors for unsupported schemes
-                if (event.request.url.includes('/images/')) {
-                  console.warn('⚠️ SW DIAGNOSTIC: Cache error for image:', event.request.url, error.message);
-                }
               });
-              if (event.request.url.includes('/images/')) {
-                console.log('💾 SW DIAGNOSTIC: Cached image:', event.request.url);
-              }
             });
 
           return response;
         }).catch((error) => {
-          if (event.request.url.includes('/images/')) {
-            console.error('❌ SW DIAGNOSTIC: Network error for image:', event.request.url, error);
-          }
           throw error;
         });
       })
